@@ -68,4 +68,6 @@ footer {
 img {
     max-width: 60%;
     height: auto;
+    float: left; 
+    margin: 10px;
 }
