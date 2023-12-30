@@ -131,13 +131,20 @@
     <footer>
         <p>&copy; 2023 Sean Hulseman. All rights reserved.</p>
     </footer>
-    <script>
-        // JavaScript function to toggle article visibility
-        function toggleArticle(articleId) {
-            var article = document.getElementById(articleId);
-            article.style.display = (article.style.display === "none" || article.style.display === "") ? "block" : "none";
-        }
-    </script>
+   
 </body>
 
 </html>
+<script>
+    // JavaScript function to toggle article visibility
+    function toggleArticle(articleId) {
+        var article = document.getElementById(articleId);
+
+        // Check if the initial state is "none" or an empty string
+        if (article.style.display === "none" || article.style.display === "") {
+            article.style.display = "block";
+        } else {
+            article.style.display = "none";
+        }
+    }
+</script>
