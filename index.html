@@ -25,21 +25,44 @@
 
     <section id="skills">
         <h2>Skills</h2>
-        <ul>
-            <li>Python</li>
-            <li>SQL</li>
-            <li>Machine Learning</li>
-            <li>Data Visualization</li>
-            <li>Neural Networks</li>
-            <!-- Add more skills as needed -->
-        </ul>
+        <article id="skill1">
+            <h3>Python</h3>
+            <!-- Additional information about the Python skill if needed -->
+        </article>
+        <article id="skill1">
+            <h3>Data Visualization</h3>
+            <!-- Additional information about the Python skill if needed -->
+        </article>
+        <article id="skill2">
+            <h3>SQL</h3>
+            <!-- Additional information about the SQL skill if needed -->
+        </article>
+        <article id="skill3">
+            <h3>R</h3>
+            <!-- Additional information about the SQL skill if needed -->
+        </article>
+        <article id="skill4">
+            <h3>Neural Networks</h3>
+            <!-- Additional information about the SQL skill if needed -->
+        </article>
+        <article id="skill5">
+            <h3>Geopandas</h3>
+            <!-- Additional information about the SQL skill if needed -->
+        </article>
+        <article id="skill6">
+            <h3>Capability, Adaptability, Curiosity, and Focus</h3>
+            <!-- Additional information about the SQL skill if needed -->
+        </article>
+        <!-- Repeat for other skills -->
+            
+
     </section>
 
     <section id="projects">
         <h2>Projects</h2>
 
         <!-- Create a section for each project you want to showcase -->
-        <article>
+        <article id="project1">
             <h3>Stellar Object Classification</h3>
             <p>The goal of this project is to create a model that 
                 accurately distinguishes between types of stellar objects from 
@@ -54,7 +77,7 @@
             <p>Technologies used: Python, Pandas, Scikit-Learn, etc.</p>
             <a href="https://github.com/seanhulseman/stellar-object-identification" target="_blank">Project on GitHub</a>
         </article>
-        <article>
+        <article id ="project2">
             <h3>Chicago Mortality Insights</h3>
             <p>Group Project: Our group found data from the Cook County Medical Examiner's office and 
                 created a scenario apply a wide range of data science skills. </p>
@@ -85,7 +108,7 @@
             <p>Data Science Immersive, Completed 500+ hours of expert-led instruction, 
             hands-on projects, labs, and quizzes in Data Science, Statistics, Regression, Classification, 
             Web Scraping APIs, Natural Language Processing, Supervised and Unsupervised 
-            Machine Learning, Neural Networks, and SQL. </p>
+            Machine Learning, Neural Networks, and SQL.</p>
         <!-- Add more education entries if applicable -->
     </section>
 
@@ -108,7 +131,13 @@
     <footer>
         <p>&copy; 2023 Sean Hulseman. All rights reserved.</p>
     </footer>
-
+    <script>
+        // JavaScript function to toggle article visibility
+        function toggleArticle(articleId) {
+            var article = document.getElementById(articleId);
+            article.style.display = (article.style.display === "none" || article.style.display === "") ? "block" : "none";
+        }
+    </script>
 </body>
 
 </html>
