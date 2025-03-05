@@ -1,56 +1,64 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piano Visualizer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        h1 {
-            text-align: center;
-        }
-        .content {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        video {
-            display: block;
-            margin: 20px auto;
-            max-width: 100%;
-            border-radius: 8px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Piano Visualizer - Sean Hulseman</title>
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body>
-    <div class="content">
-        <h1>Piano Visualizer</h1>
+<body class="is-preload">
+
+    <!-- Navigation -->
+    <nav id="nav">
+        <ul class="container">
+            <li><a href="index.html#top">Top</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="piano.html">Piano</a></li>
+            <li><a href="notebook.html">Engineering Notebook</a></li>
+            <li><a href="images/Sean_Hulseman_resume_2_14_2025_c_fair_tufts.pdf">Resume</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <section id="main" class="container">
+        <header>
+            <h1>Piano Visualizer</h1>
+        </header>
         <p>This file is meant to explore the possibility of automating the creation of videos to visualize the keys pressed in songs I play.</p>
         <p>I wrote this for myself to visualize the keystrokes I use when playing my music. I have been teaching myself piano over the past two years, though I cannot read musical notation...</p>
-        
+
         <h2>Project Goals</h2>
         <ul>
             <li>Visualizer: Templates and customizations</li>
             <li>Combining sound and video: Automating sync process</li>
         </ul>
-        
+
         <p>This is a proof of concept stage, more to come!</p>
-        
+
+        <h2>Current Progress</h2>
+        <p>Currently, I am working on a project to visualize drum tracks. I am exploring what it takes to process the videos assuming the MIDI tracks contain multiple files.</p>
+
+        <video controls>
+            <source src="https://raw.githubusercontent.com/seanhulseman/seanhulseman.github.io/main/images/March5_song1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p> This is intended to be a way to improve my playing but they are fun to make/watch too! </p>
+        <video controls>
+            <source src="https://raw.githubusercontent.com/seanhulseman/seanhulseman.github.io/main/images/March5_song2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <p>These videos are the first two examples I processed that had the additional tracks to manage. Note: I need a system to organize the files I produce. In addition, piano lessons are probably wise.</p>
+
         <h2>Proof of Concept Video</h2>
         <p>Below is a song I recorded on Feb 25, demonstrating the concept. I'm still a novice at both piano and coding, but I find this to be a cool way to visualize my playing.</p>
-        
+
         <video controls>
             <source src="https://raw.githubusercontent.com/seanhulseman/seanhulseman.github.io/main/images/feb_25_sean_hulseman.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-    </div>
+    </section>
+
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
