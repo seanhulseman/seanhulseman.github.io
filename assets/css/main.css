@@ -24,7 +24,14 @@ section, summary, time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;}
-
+/* adding this to test  */
+video {
+		max-width: 100%;
+		height: auto;
+		display: block;
+		margin: 20px auto;
+		border-radius: 8px;
+	}
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
