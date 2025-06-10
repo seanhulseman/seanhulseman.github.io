@@ -1,50 +1,174 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title>Engineering Notebook - Sean Hulseman</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-    </head>
-    <body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Engineering Notebook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0 auto;
+      max-width: 800px;
+      padding: 2em;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    h1 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.3em;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    img {
+      max-width: 75%;
+      margin: 1em 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .entry {
+      margin-bottom: 3em;
+      padding-bottom: 2em;
+      border-bottom: 1px dashed #ccc;
+    }
+    .note {
+      background: #fff;
+      padding: 1em;
+      border-left: 4px solid #3498db;
+      margin: 1em 0;
+    }
+    .quote {
+      background: #eee;
+      padding: 0.8em 1em;
+      font-style: italic;
+      border-left: 4px solid #999;
+    }
+  </style>
+</head>
+<body>
 
-        <!-- Navigation -->
-        <nav id="nav">
-            <ul class="container">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#notebook">Captsone Engineering Notebook</a></li>
+  <h1>Engineering Notebook</h1>
+
+  <div class="entry">
+    <h2>June 03 - June 10, 2025</h2>
+    <ul>
+      <li>Updating the engineering notebook</li>
+      <li>Cleared and restarted the format</li>
+    </ul>
+
+    <div class="note">
+      <strong>Summary of Work:</strong><br>
+      <ul>
+  <li>
+    The process of scraping PDFs is tricky so I started the attempt at analyzing the Radio Landscape with a single station. My initial method of scraping the PDFs is heavily reliant on consistent formatting. I am currently working further on this problem
+    <ul>
+      <li>From the public FCC files WBUR (Boston University's NPR station) I was able to completely capture the tables of issues for 2019Q1-2025Q1.</li>
+      <li>
+        The full set of I+P reports, 2013-2025, is remarkably consistent. WBUR uses the exact same skeleton for these reports
+        <ul>
+          <li>WBUR produces two shows "Morning Edition" and "All Things Considered" and that has not changed over the entire 12 year duration of this set.</li>
+          <li>The documents are dozens of pages. (70 pages is the last one I skimmed)</li>
+          <li>Issues are before the programming lists. Additionally, issues are always ordered as below:
+            <ul>
+              <li>["General","Economic and Business", "Education", "Medical and Healthcare", "Politics and Government", "Crime", "Science and Technology", "Religion", "Weather and Environmental", "Arts, Culture, Media", "Sports", "National/International"]</li>
+              <li>The change in the issue group is noted by the next issue appearing in its own line. This makes it easy to tie the issue groups to the blurbs. The authors of WBUR's I+P reports changed from line separated entries to tables during 2018 - the skeleton and issue orders remain unchanged</li>
             </ul>
-        </nav>
+          </li>
+        </ul>
+      </li>
+      <li>I analyzed the low-hanging-fruit (2019-2024) and what I found is very intriguing.</li>
+    </ul>
+  </li>
+</ul>
 
-        <!-- Engineering Notebook Section -->
-        <article id="notebook" class="wrapper style1">
-            <div class="container">
-                <header>
-                    <h1>Hulseman, MS DS, Captsone Notebook</h1>
-                </header>
-                <p>Welcome to my engineering notebook for CS288 at Tufts University. Here, I will track my weekly progress on the capstone project.</p>
-                
-                <!-- Weekly Updates -->
-                <section>
-                    <h2>Week 1</h2>
-                    <p>I built this page and added it to my portfolio</p>
-                </section>
+    </div>
 
-                <section>
-                    <h2>Week 2</h2>
-                    
-                    <p>The link to my previous version of the project is here: <a href="https://github.com/seanhulseman/FM-Broadcast-Landscape" target="_blank">FM-Broadcast-Landscape</a>.</p>
-                    <h3></h3>
-                    <p>
-                        <strong>Proposal Summary</strong> : I plan to geospatially map and categorize radio stations to build a "Radio Landscape" that represents the diversity of programming available at any location. This map will also be used to explore connections between regional social and economic trends across different "Radio Landscapes."
-                    </p>
-                    
-                </section>
-                
+    <ul>
+      <li>Successfully extracted tables from 2019Q1 to 2025Q1</li>
+      <li>WBUR’s reports from 2013–2025 are structurally consistent:
+        <ul>
+          <li>Two shows dominate: <em>Morning Edition</em> and <em>All Things Considered</em></li>
+          <li>Reports are around 70 pages; issues come before programming lists</li>
+          <li>Consistent issue order:
+            <br><code>["General", "Economic and Business", ..., "National/International"]</code>
+          </li>
+          <li>Switched from line-separated blurbs to tables in 2018</li>
+        </ul>
+      </li>
+    </ul>
 
-                <!-- Add more weeks as needed -->
-            </div>
-        </article>
+    <p>Initial analysis (2019–2024) yielded some interesting results:</p>
+    
+    <img src="images/annual-runtime-bycategory.png" alt="Annual Runtime by Category">
+    <ul>
+      <li>Runtime is constrained by program length</li>
+      <li>Notable trends:
+        <ul>
+          <li>Drop in National/International coverage post-2021. Could the "unpleasantness" of conflict-related stories be causing a focusing away from those thorny topics?</li>
+          <li>Rise in Weather-related stories: climate link?</li>
+        </ul>
+      </li>
+    </ul>
 
-    </body>
+    <img src="images/annual-count-issues.png" alt="Annual Count of Issues">
+    <ul>
+      <li>Decreasing number of issues reported post-2020 complicates earlier narratives</li>
+    </ul>
+
+    <div class="note">
+      <strong>Issue:</strong> Duplicate reports for 2024 Q2 from FCC<br>
+      <img src="images/2024Q2.png" alt="2024 Q2">
+      <img src="images/2024Q3.png" alt="2024 Q3">
+    </div>
+
+
+
+    <p><strong>Resolution and notes from meeting:</strong> Contacted Geoffrey Graves (Engineer at WBUR) on June 6, 2025. Learned the newsroom staff creates content, with oversight before submission. $10k FCC fines due to delay in submission are possible and legal advice regarding I+P forms was recently given to the station.</p>
+    <div class="quote">
+      “WBUR used to submit quarterly reports ‘live’ but now delay them by one quarter.”
+    </div>
+    <div class="note">
+  <p>
+    I reached out to the WBUR general information email asking to speak with someone with knowledge of the I+P reports, the FCC, and any insider info they could give me about this specific "error."
+  </p>
+  <p>
+    Several days later, Geoffrey Graves (Engineer with WBUR) responded to me, and we met via Zoom on June 6, 2025.
+  </p>
+
+  <ul>
+    <li>
+      Geoff is the person who navigates the FCC API and actually submits the I+P files for WBUR. He was previously in a similar role at WBZ (a TV station). He's deeply knowledgeable about:
+      <ul>
+        <li>Radio signal transmission</li>
+        <li>FCC regulations and enforcement</li>
+        <li>Submission pipelines and technical compliance</li>
+      </ul>
+    </li>
+    <li>
+      The newsroom that produces the shows on WBUR has its own staff responsible for populating the documents. Final approval is done by two individuals (Geoff shared their names; I may speak with them later). Geoff then submits the files.
+    </li>
+    <li>
+      One thing I learned: According to Mr. Graves, the decrease in runtime dedicated to issue groups was likely influenced by the cancellation of another WBUR show, <em>Radio Boston</em>. He said it was "canceled in 2025" but already "toned down" starting in 2024.
+    </li>
+  </ul>
+
+  <ul>
+    <li>The newsroom would be continuously adding content right up until submission, then rush through editing, review, and approval of a 70-page document under deadline pressure.</li>
+    <li>Geoff recalled a quarter when FCC servers were slow or unresponsive. The FCC's advice in those moments? "Keep trying." Engineers like Geoff were forced to repeatedly refresh—ironically worsening server load.</li>
+    <li>Despite FCC faults, any late submission could result in a $10,000 fine for the station.</li>
+    <li>
+      A station lawyer advised WBUR that the FCC allows a <strong>reasonable delay of one quarter</strong> to ensure complete and accurate documentation.
+      <ul>
+        <li>This revelation is significant: The very thing that could have corrupted my analysis—overlapping reports—may be a legally permitted practice across multiple FM stations.</li>
+        <li>It may be worth scanning each station’s I+P lists to see if and when this delay paradigm appears elsewhere.</li>
+      </ul>
+    </li>
+  </ul>
+
+
+</body>
 </html>
