@@ -50,7 +50,87 @@
   </style>
 </head>
 <body>
+
   <h1>Engineering Notebook</h1>
+  <div class="entry">
+  <h2>October 5 - October 6, 2025</h2>
+  <ul>
+    <li><strong>Progress Check</strong>
+      <ul>
+        <li><em>Issues files for a GPS location</em>
+          <ul>
+            <li>This method uses station transmitter class (A, B1, C, etc.) to approximate broadcast range. The FCC uses this to draw the contour maps showing which wavelengths are reserved for that particular station.</li>
+            <li>Uses Haversine distance calculations to go from latitude/longitude to a reliable arc length on a sphere (of a known radius).</li>
+            <li>The links to retrieve the issues/programs lists are aggregated only if they are within that station's likely protected radius.</li>
+            <li>Example output: “Found 39 stations within contour range. Saved results to <code>filtered_stations_medford.json</code>.”</li>
+            <li>Note: <strong>raw counts may be useful</strong>.</li>
+            <li>1749 individual PDFs processed.</li>
+          </ul>
+        </li>
+        <li><em>ndjson_updated</em>:
+          <ul>
+            <li>Fields added to label station as commercial or not. Power and height data may prove useful:</li>
+            <li>“Effective Radiated Power (horizontal)”</li>
+            <li>“Effective Radiated Power (vertical)”</li>
+            <li>“Antenna Height Above Average Terrain (HAAT) — horizontal polarization”</li>
+            <li>“Antenna Height Above Average Terrain (HAAT) — vertical polarization”</li>
+            <li>“Commercial”</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><strong>Todo</strong>
+      <ul>
+        <li>Optimize process of collecting stations/PDFs:
+          <ul>
+            <li>GPS mode: basically functional (Oct 5)</li>
+            <li>City (Geo/shapefiles/etc.)</li>
+            <li>State</li>
+            <li>Licensee</li>
+          </ul>
+        </li>
+        <li>Counting:
+          <ul>
+            <li><strong>File count</strong>: Multiple files may represent the same quarter; consider merging unique submissions into a single logical document.</li>
+            <li><strong>Issue count</strong>: Count distinct issues (based on unique dates and program titles).</li>
+          </ul>
+        </li>
+        <li><strong>Similarity of Issues</strong> — exploring clustering and similarity metrics across stations.</li>
+      </ul>
+    </li>
+
+    <li><strong>Crazy Idea</strong>
+      <ul>
+        <li>Count the number of stations and files. For any given latitude/longitude, return a series of tuples. The length of the series = number of stations receivable at that location at the time of the FM Query.</li>
+        <li><em>Simple numeric description of a region</em>:
+          <pre><code>[
+  ["commercial", "file_count"],
+  ["commercial", "file_count"],
+]
+[
+  [1, 52],
+  [0, 12], // Example: 1 commercial and 1 educational station
+]</code></pre>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+  <h2>October 6, 2025 — Proof of Concept Visualization</h2>
+  <ul>
+    <li><strong>Visualization</strong>:
+      <ul>
+        <li>The image below shows the <em>proportion of stories in each category</em> as decided by WBUR.</li>
+        <li>This serves as a <strong>proof of concept</strong> demonstrating how issue categorization and clustering could be represented visually.</li>
+      </ul>
+    </li>
+  </ul>
+  <div class="image-container">
+    <img src="images/ME_ATC_test.png" alt="Proportion of stories by category — WBUR proof of concept" style="max-width: 80%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.15);">
+    <p class="caption"><em>Figure: WBUR Issue Proportion — Proof of Concept Visualization</em></p>
+  </div>
+</div>
   <div class="entry">
     <h2>July 7 - July 28, 2025</h2>
     <ul>
