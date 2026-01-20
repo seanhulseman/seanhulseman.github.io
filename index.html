@@ -13,8 +13,6 @@
 			<ul class="container">
 				<li><a href="#top">Top</a></li>
 				<li><a href="#portfolio">Portfolio</a></li>
-				<!-- <li><a href="piano.html">Piano</a></li>
-				<li><a href="notebook.html">Engineering Notebook</a></li> -->
 				<li><a href="images/Sean_Hulseman_resume_sep_26_2025.pdf">Resume</a></li>
 			</ul>
 		</nav>
@@ -31,7 +29,10 @@
 							<h1><strong>Sean Hulseman</strong></h1>
 							<h2>Data Scientist</h2>
 						</header>
-						<p>Welcome! I’m a <strong>data scientist</strong> with a background in philosophy, teaching, and business ownership. This portfolio showcases a selection of data science projects, highlighting skills in data analysis and machine learning. In all my work, I bring strong analytical abilities, an ethical perspective, and a collaborative mindset.</p>
+						<p>Welcome. I’m a data scientist and educator with a background in philosophy, and I tend to approach problems slowly, deliberately, and with a long view in mind. I’m drawn to projects that require sustained attention, careful reasoning, and a willingness to sit with ambiguity until structure emerges. 
+						</p>
+						<p>	
+						Much of my work reflects this orientation. The Radio Landscape project, for example, began as a conceptual idea more than a year before I had formal training in statistics or machine learning, and evolved through graduate study into a fully realized data pipeline and analytical system. Across projects, I balance rigor with imagination, persistence with play, and technical execution with ethical consideration. This portfolio highlights work shaped by that way of thinking.</p>
 
 						</p>
 					</div>
@@ -46,40 +47,97 @@
 					<h2>Portfolio</h2>
 				</header>
 				<!-- FCC Radio Landscape Project -->
-<section>
+<section id="radio-landscape">
   <header>
     <h3>FCC Radio Landscape Project</h3>
   </header>
-  <div class="row">
-    <!-- Raw PDF Image 1 -->
-    <div class="col-4 col-6-medium col-12-small">
+
+  <!-- <ul class="actions">
+    <li><a href="#" class="button small">Write-up</a></li>
+    <li><a href="#" class="button small">GitHub</a></li>
+    <li><a href="#" class="button small">Methods</a></li>
+  </ul> -->
+
+  <!-- Narrative scaffold (kept short; lets images carry meaning) -->
+  <p class="project-summary">
+    This project builds an end-to-end pipeline that turns FCC quarterly “Issues &amp; Programs” PDFs into structured data,
+    then connects station coverage, district/precinct geography, and NLP-derived signals to study what is discussed, where,
+    and when.
+  </p>
+
+  <!-- FIGURE GRID -->
+  <div class="row aln-center">
+
+    <!-- 1) Coverage universe -->
+    <div class="col-6 col-12-medium">
       <article class="box style2">
-        <a href="images/combined_I_P.png" class="image featured">
-          <img src="images/combined_I_P.png" alt="Raw PDF Issues/Programs List Example 1" />
+        <a href="images/FM stations covering cd13 messy.png" class="image featured">
+          <img src="images/FM stations covering cd13 messy.png"
+               alt="Map of FM towers and modeled coverage radii intersecting a selected congressional district" />
         </a>
-        <h4>Raw PDF Examples</h4>
+        <h4>Figure 1 — Coverage Universe</h4>
+        <p class="caption">
+          Towers and modeled broadcast ranges for stations with available FCC filings. Establishes the observable set of broadcasters
+          intersecting the target district.
+        </p>
       </article>
     </div>
 
-   
-
-    <!-- Processed Result -->
-    <div class="col-4 col-6-medium col-12-small">
+    <!-- 2) District selection logic -->
+    <div class="col-6 col-12-medium">
       <article class="box style2">
-        <a href="images/ME_ATC_test.png" class="image featured">
-          <img src="images/ME_ATC_test.png" alt="Processed Output with Extracted & Labeled Content" />
+        <a href="images/population_density_vs_party_likelihood_all_whole.png" class="image featured">
+          <img src="images/population_density_vs_party_likelihood_all_whole.png"
+               alt="Plot showing relationship between district population density and likelihood of Democratic or Republican victory" />
         </a>
-        <h4>Processed Output</h4>
+        <h4>Figure 2 — District Selection</h4>
+        <p class="caption">
+          Used district population density vs. 2024 party win likelihood—combined with Redistricting Hub data availability—to narrow and
+          justify which districts could support precinct-level analysis.
+        </p>
       </article>
     </div>
+
+    <!-- 3) TX POC: keyword prevalence -->
+    <div class="col-6 col-12-medium">
+      <article class="box style2">
+        <a href="images/politic_hotbutton_issues_tx_cd2.png" class="image featured">
+          <img src="images/politic_hotbutton_issues_tx_cd2.png"
+               alt="Time series showing percent of stations whose reports include selected hot-button terms per month" />
+        </a>
+        <h4>Figure 3 — Proof of Concept: Keyword Prevalence</h4>
+        <p class="caption">
+          First POC (TX). For each month, compares the percentage of stations whose filings contain selected terms—an interpretable
+          district-wide signal before moving to finer-grained precinct splits.
+        </p>
+      </article>
+    </div>
+
+    <!-- 4) IL-13: partisan split / lead-lag -->
+    <div class="col-6 col-12-medium">
+      <article class="box style2">
+        <a href="images/culture_war_red_blue_border.png" class="image featured">
+          <img src="images/culture_war_red_blue_border.png"
+               alt="Time series comparing normalized narrative intensity between Democrat- and Republican-leaning precinct groupings" />
+        </a>
+        <h4>Figure 4 — Precinct Split and “Lead/Lag” Signal</h4>
+        <p class="caption">
+          IL-13. After topic clustering proved noisy, manually consolidated narrative categories tied to community-relevant issues.
+          Precincts were labeled using 2024 election results; the resulting time series suggests a “leading the conversation” pattern
+          between red- and blue-leaning broadcast audiences.
+        </p>
+      </article>
+    </div>
+
   </div>
 
-  <p>
-    Built a pipeline to crawl FCC Public Information Files and inventory “issues/programs lists” for U.S. FM radio stations. 
-    Engineered a structured dataset linking FCC metadata (e.g., ownership, location, broadcast range) with each station’s program lists. 
-    Developed text extraction and labeling methods to process unstructured PDF content, enabling topic classification and analysis of broadcast issues.
-  </p>
+  <!-- OPTIONAL: compact “what’s under the hood” bullets (keeps section resume-friendly) -->
+  <ul class="alt">
+    <li>Data: FCC Public Information Files (quarterly PDFs) + FCC station metadata + Redistricting Hub precinct shapefiles</li>
+    <li>Methods: PDF extraction → field normalization → geo-joins → time-series aggregation → NLP signals (keywords / manual topic sets)</li>
+  </ul>
 </section>
+
 
 				<!-- Reinforcement Learning Focus -->
 				<section>
